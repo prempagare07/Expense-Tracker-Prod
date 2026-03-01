@@ -1,0 +1,173 @@
+/* ─── Palm Tree Background ──────────────────────────────────────────────────── */
+.palm-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    #0d0610 0%,
+    #1a0520 20%,
+    #3b0d20 45%,
+    #5c1630 65%,
+    #8c1d40 85%,
+    #6b1530 100%
+  );
+  pointer-events: none;
+}
+
+/* ─── Sky overlay gradient ──────────────────────────────────────────────────── */
+.sky-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(255, 198, 39, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(140, 29, 64, 0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+}
+
+/* ─── Stars ──────────────────────────────────────────────────────────────────── */
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle var(--dur, 3s) ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50%       { opacity: 0.9; transform: scale(1.2); }
+}
+
+/* ─── Floating Orbs ──────────────────────────────────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: floatOrb 12s ease-in-out infinite;
+}
+
+.orb-gold {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 198, 39, 0.18) 0%, transparent 70%);
+  left: -80px;
+  top: 30%;
+  animation-duration: 14s;
+}
+
+.orb-maroon {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(140, 29, 64, 0.25) 0%, transparent 70%);
+  right: -100px;
+  top: 10%;
+  animation-duration: 18s;
+  animation-delay: -6s;
+}
+
+.orb-gold-2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 198, 39, 0.10) 0%, transparent 70%);
+  left: 40%;
+  bottom: 10%;
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -25px) scale(1.05); }
+  66%       { transform: translate(-15px, 15px) scale(0.95); }
+}
+
+/* ─── Palm Trees ─────────────────────────────────────────────────────────────── */
+.palm-tree {
+  position: absolute;
+  bottom: 0;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Left side palms */
+.palm-left-1 {
+  left: -20px;
+  width: 180px;
+  height: 380px;
+  transform-origin: bottom center;
+  animation: swayLeft 6s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+.palm-left-2 {
+  left: 60px;
+  width: 130px;
+  height: 280px;
+  transform-origin: bottom center;
+  animation: swayLeft 8s ease-in-out infinite;
+  animation-delay: -2s;
+  opacity: 0.75;
+}
+
+/* Right side palms */
+.palm-right-1 {
+  right: -20px;
+  width: 180px;
+  height: 380px;
+  transform: scaleX(-1);
+  transform-origin: bottom center;
+  animation: swayRight 7s ease-in-out infinite;
+  animation-delay: -1s;
+  opacity: 0.95;
+}
+
+.palm-right-2 {
+  right: 60px;
+  width: 130px;
+  height: 280px;
+  transform: scaleX(-1);
+  transform-origin: bottom center;
+  animation: swayRight 9s ease-in-out infinite;
+  animation-delay: -4s;
+  opacity: 0.75;
+}
+
+@keyframes swayLeft {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-3deg); }
+  75%       { transform: rotate(2.5deg); }
+}
+
+@keyframes swayRight {
+  0%, 100% { transform: scaleX(-1) rotate(0deg); }
+  25%       { transform: scaleX(-1) rotate(-3deg); }
+  75%       { transform: scaleX(-1) rotate(2.5deg); }
+}
+
+/* ─── Ground patches ─────────────────────────────────────────────────────────── */
+.ground-left,
+.ground-right {
+  position: absolute;
+  bottom: 0;
+  width: 220px;
+  height: 60px;
+  background: radial-gradient(ellipse at center bottom, rgba(20, 60, 10, 0.5) 0%, transparent 80%);
+  filter: blur(8px);
+}
+
+.ground-left  { left: -20px; }
+.ground-right { right: -20px; }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .palm-left-1  { width: 120px; height: 260px; left: -30px; }
+  .palm-left-2  { display: none; }
+  .palm-right-1 { width: 120px; height: 260px; right: -30px; }
+  .palm-right-2 { display: none; }
+}

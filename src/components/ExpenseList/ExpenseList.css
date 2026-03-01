@@ -1,0 +1,148 @@
+/* ─── Expense List ────────────────────────────────────────────────────────────── */
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expense-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.expense-list__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.expense-list__count {
+  background: rgba(255, 198, 39, 0.15);
+  color: #ffc627;
+  border: 1px solid rgba(255, 198, 39, 0.25);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  letter-spacing: 0;
+}
+
+/* ─── Groups ─────────────────────────────────────────────────────────────────── */
+.expense-list__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.expense-group__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.expense-group__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Expand / Collapse toggle ───────────────────────────────────────────────── */
+.expense-group__toggle {
+  background: rgba(255, 198, 39, 0.1);
+  border: 1px solid rgba(255, 198, 39, 0.22);
+  color: #ffc627;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.18rem 0.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.expense-group__toggle:hover {
+  background: rgba(255, 198, 39, 0.18);
+  border-color: rgba(255, 198, 39, 0.4);
+  box-shadow: 0 0 10px rgba(255, 198, 39, 0.15);
+}
+
+/* ─── Expanded scrollable items ──────────────────────────────────────────────── */
+.expense-group__items--expanded {
+  max-height: 540px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+  padding-right: 4px;
+}
+.expense-group__items--expanded::-webkit-scrollbar       { width: 4px; }
+.expense-group__items--expanded::-webkit-scrollbar-track  { background: transparent; }
+.expense-group__items--expanded::-webkit-scrollbar-thumb  { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+.expense-group__month {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.expense-group__subtotal {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.expense-group__amount {
+  font-weight: 700;
+  color: rgba(255, 198, 39, 0.7);
+}
+
+.expense-group__items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ─── Empty State ────────────────────────────────────────────────────────────── */
+.expense-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+}
+
+.expense-list-empty__icon {
+  font-size: 2.8rem;
+}
+
+.expense-list-empty p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.expense-list-empty__hint {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.28);
+}

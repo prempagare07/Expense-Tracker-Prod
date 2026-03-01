@@ -1,0 +1,219 @@
+/* ─── Root container ─────────────────────────────────────────────────────── */
+.um-root {
+  position: relative;
+}
+
+.um-root--guest {
+  /* Guest root needs position:relative for the inline panel */
+  position: relative;
+}
+
+/* ─── Sign-in button (guest) ─────────────────────────────────────────────── */
+.um-signin-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem 1.05rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.um-signin-btn:hover,
+.um-signin-btn--active {
+  background: rgba(255, 198, 39, 0.15);
+  border-color: rgba(255, 198, 39, 0.35);
+  color: #ffc627;
+  box-shadow: 0 0 14px rgba(255, 198, 39, 0.15);
+}
+
+/* ─── Inline Sign-In Panel ───────────────────────────────────────────────── */
+.um-signin-panel {
+  position: fixed;
+  top: 72px;
+  right: 1rem;
+  z-index: 700;
+}
+
+@media (max-width: 500px) {
+  .um-signin-panel {
+    right: 0.5rem;
+    top: 66px;
+  }
+}
+
+/* ─── Avatar button (signed in) ─────────────────────────────────────────── */
+
+.um-avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.um-avatar-btn:hover { background: rgba(255,255,255,0.08); }
+
+.um-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.2);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+  transition: border-color 0.2s;
+  overflow: hidden;
+}
+
+.um-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.um-avatar-btn:hover .um-avatar { border-color: rgba(255,198,39,0.5); }
+
+.um-chevron {
+  color: rgba(255,255,255,0.4);
+  transition: transform 0.2s ease;
+}
+.um-chevron--open { transform: rotate(180deg); }
+
+/* ─── Dropdown ──────────────────────────────────────────────────────────── */
+.um-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 240px;
+  background: linear-gradient(155deg, #1c0630 0%, #28093a 100%);
+  border: 1px solid rgba(255, 198, 39, 0.18);
+  border-radius: 14px;
+  box-shadow:
+    0 16px 50px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(255,255,255,0.04);
+  z-index: 700;
+  overflow: hidden;
+  animation: dropIn 0.2s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ─── Info block ────────────────────────────────────────────────────────── */
+.um-dropdown__info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+}
+
+.um-dropdown__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.18);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.um-dropdown__name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.um-dropdown__email {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.38);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/* ─── Divider ───────────────────────────────────────────────────────────── */
+.um-dropdown__divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 0;
+}
+
+/* ─── Stats ─────────────────────────────────────────────────────────────── */
+.um-dropdown__stats {
+  padding: 0.7rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.um-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.um-stat__label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.38);
+}
+
+.um-stat__val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,198,39,0.8);
+}
+
+/* ─── Sign out button ───────────────────────────────────────────────────── */
+.um-dropdown__signout {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.75rem 1.1rem;
+  background: none;
+  border: none;
+  color: rgba(255, 94, 94, 0.8);
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.um-dropdown__signout:hover {
+  background: rgba(255, 94, 94, 0.1);
+  color: #ff5e5e;
+}

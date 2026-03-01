@@ -1,0 +1,247 @@
+/* ─── Sticky wrapper — pins header + budget bar to the top ───────────────────── */
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* ─── App Header ─────────────────────────────────────────────────────────────── */
+.app-header {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background: rgba(15, 5, 20, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 198, 39, 0.2);
+  flex-wrap: wrap;
+}
+
+/* ─── Brand ──────────────────────────────────────────────────────────────────── */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.asu-logo-block {
+  display: flex;
+  gap: 2px;
+  background: linear-gradient(135deg, #8c1d40, #6b1530);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 198, 39, 0.5);
+  box-shadow: 0 0 20px rgba(140, 29, 64, 0.5), inset 0 1px 0 rgba(255, 198, 39, 0.2);
+}
+
+.asu-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffc627;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(255, 198, 39, 0.6);
+  letter-spacing: 2px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255, 198, 39, 0.7);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Stats Chips ────────────────────────────────────────────────────────────── */
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 198, 39, 0.1);
+  border: 1.5px solid rgba(255, 198, 39, 0.35);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+  min-width: 90px;
+  box-shadow: 0 2px 12px rgba(255, 198, 39, 0.12), inset 0 1px 0 rgba(255, 198, 39, 0.08);
+}
+
+.stat-chip:hover {
+  background: rgba(255, 198, 39, 0.18);
+  border-color: rgba(255, 198, 39, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(255, 198, 39, 0.22);
+}
+
+.stat-chip-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stat-chip-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffc627;
+  margin-top: 2px;
+  text-shadow: 0 0 10px rgba(255, 198, 39, 0.5);
+}
+
+.stat-chip--warning .stat-chip-value { color: #f5a623; }
+.stat-chip--critical .stat-chip-value { color: #ff5e5e; }
+.stat-chip--critical {
+  border-color: rgba(255, 94, 94, 0.4);
+  animation: pulseDanger 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDanger {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 94, 94, 0); }
+  50%       { box-shadow: 0 0 0 4px rgba(255, 94, 94, 0.2); }
+}
+
+/* ─── Actions ────────────────────────────────────────────────────────────────── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-budget {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.55rem 1.1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-budget:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 198, 39, 0.4);
+  color: #ffc627;
+}
+
+.btn-add-expense {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #a52050, #8c1d40);
+  border: 1.5px solid rgba(255, 198, 39, 0.7);
+  color: #ffc627;
+  padding: 0.75rem 1.7rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  box-shadow:
+    0 4px 18px rgba(140, 29, 64, 0.55),
+    0 0 0 0 rgba(255, 198, 39, 0.4);
+  font-family: inherit;
+  animation: addBtnPulse 2.8s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255, 198, 39, 0.5);
+}
+
+@keyframes addBtnPulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(140, 29, 64, 0.55), 0 0 0 0 rgba(255, 198, 39, 0.35);
+  }
+  50% {
+    box-shadow: 0 4px 18px rgba(140, 29, 64, 0.55), 0 0 0 6px rgba(255, 198, 39, 0);
+  }
+}
+
+.btn-add-expense:hover {
+  background: linear-gradient(135deg, #c0284f, #a52050);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(140, 29, 64, 0.7), 0 0 0 2px rgba(255, 198, 39, 0.5);
+  animation: none;
+}
+
+.btn-add-expense:active {
+  transform: translateY(0) scale(1);
+}
+
+/* ─── Budget Progress Bar ────────────────────────────────────────────────────── */
+.budget-progress-bar-wrap {
+  position: relative;
+  z-index: 99;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.budget-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffc627, #ffb300);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 2px 2px 0;
+}
+
+.budget-progress-bar--warning {
+  background: linear-gradient(90deg, #f5a623, #e09000);
+}
+
+.budget-progress-bar--critical {
+  background: linear-gradient(90deg, #ff5e5e, #e03030);
+  animation: progressPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .brand-subtitle { display: none; }
+  .header-stats   { gap: 0.5rem; }
+  .stat-chip      { min-width: 72px; padding: 0.45rem 0.85rem; }
+  .stat-chip-value { font-size: 0.95rem; }
+
+  .btn-budget { display: none; }
+  .btn-add-expense { padding: 0.55rem 1rem; font-size: 0.82rem; }
+}
